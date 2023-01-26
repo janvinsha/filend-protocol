@@ -1,0 +1,105 @@
+{
+  "Contracts": {},
+  "Blocks": {
+    "fUSDC": 8370189,
+    "fUSDT": 8370265,
+    "PriceOracle": 8367724,
+    "PriceOracleProxy": 8370562,
+    "GovernorAlphaHarness": 8379529,
+    "FilendLens": 8379681,
+    "StdComptroller": 8367695,
+    "Unitroller": 8367844,
+    "Fil": 8379489,
+    "fETH": 8359274,
+    "Base500bps_Slope1200bps": 8367809,
+    "Timelock": 8379473
+  },
+  "PriceOracle": {
+    "description": "Simple Price Oracle",
+    "address": "0x8009E32302342D3F29977D0D7Ea55cA5a43E1eBb"
+  },
+  "FilendLens": {
+    "name": "FilendLens",
+    "contract": "FilendLens",
+    "address": "0x9769f8980ec44c46E1181fc00DB6175e05b8210A"
+  },
+  "PriceOracleProxy": {
+    "description": "Price Oracle Proxy",
+    "fETH": "0x5449f7004852757Ee46BF125E636ef151070a502",
+    "fUSDC": "0x160Def7e19bF719f8620a36e1C95aEB0bf460b1F",
+    "fUSDT": "0xa42Dc52912358688DA648050c3B439b20B2e74e7",
+    "address": "0xd01cf97522A532EB68b762Ee886a5aC9E000F0D7"
+  },
+  "Unitroller": {
+    "description": "Unitroller",
+    "address": "0x26885d9ab3d6E4282058FB9f70E62d38c465e0B5"
+  },
+  "Filetroller": {
+    "StdFiletroller": {
+      "address": "0xAeaD8eE43f8DD6ac2d286f4a07Ff96dD2cAe292B",
+      "contract": "Filetroller",
+      "description": "Standard Filetroller Impl"
+    }
+  },
+  "Fil": {
+    "contract": "Fil",
+    "symbol": "FIL",
+    "name": "Filend Governance Token",
+    "decimals": 18,
+    "address": "0x507c354050923c1F1bb48A05C27Fcd9171864861"
+  },
+  "Governor": {
+    "GovernorAlphaHarness": {
+      "name": "GovernorAlphaHarness",
+      "contract": "GovernorAlphaHarness",
+      "address": "0xe6C7FB0A747a0130911F82E6dBb5D7D930B6b265"
+    }
+  },
+  "Timelock": {
+    "address": "0x610CcBCdF0f4C39Fc067f7D9979d8Cd961815E44",
+    "contract": "Timelock",
+    "description": "Test Timelock"
+  },
+  "fTokens": {
+    "fETH": {
+      "name": "Filend Ether",
+      "symbol": "fETH",
+      "decimals": 8,
+      "underlying": "",
+      "contract": "FEther",
+      "initial_exchange_rate_mantissa": "200000000000000000000000000",
+      "admin": "0x659CE0FC2499E1Fa14d30F5CD88aD058ba490e39",
+      "address": "0xEf27dEc223ED218Ad5AfE0F211dB6Eb3a9918c4C"
+    },
+    "fUSDC": {
+      "name": "Filend USD Coin",
+      "symbol": "fUSDC",
+      "decimals": 8,
+      "underlying": "0xD87Ba7A50B2E7E660f678A895E4B72E7CB4CCd9C",
+      "contract": "FErc20",
+      "initial_exchange_rate_mantissa": "200000000000000",
+      "admin": "0x659CE0FC2499E1Fa14d30F5CD88aD058ba490e39",
+      "address": "0x160Def7e19bF719f8620a36e1C95aEB0bf460b1F"
+    },
+    "fUSDT": {
+      "name": "Filend USD Tether",
+      "symbol": "fUSDT",
+      "decimals": 8,
+      "underlying": "0xe802376580c10fe23f027e1e19ed9d54d4c9311e",
+      "contract": "FErc20",
+      "initial_exchange_rate_mantissa": "200000000000000",
+      "admin": "0x659CE0FC2499E1Fa14d30F5CD88aD058ba490e39",
+      "address": "0xa42Dc52912358688DA648050c3B439b20B2e74e7"
+    }
+  },
+  "InterestRateModel": {
+    "Base500bps_Slope1200bps": {
+      "name": "Base500bps_Slope1200bps",
+      "contract": "WhitePaperInterestRateModel",
+      "description": "WhitePaper baseRate=50000000000000000 multiplier=120000000000000000",
+      "base": "50000000000000000",
+      "slope": "120000000000000000",
+      "address": "0x3435bB7C5EF81E606acf3fb221be1619cFe5080A"
+    }
+  }
+}
