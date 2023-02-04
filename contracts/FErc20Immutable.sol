@@ -6,7 +6,7 @@ import "./FErc20.sol";
 
 /**
  * @title Filend's FErc20Immutable Contract
- * @notice CTokens which wrap an EIP-20 underlying and are immutable
+ * @notice FTokens which wrap an EIP-20 underlying and are immutable
  * @author Filend
  */
 

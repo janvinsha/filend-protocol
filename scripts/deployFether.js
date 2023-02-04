@@ -2,7 +2,7 @@ const main = async () => {
   const fetherFactory = await hre.ethers.getContractFactory("FEther");
   const fether = await fetherFactory.deploy(
     //filtrollerAddress
-    "0xAeaD8eE43f8DD6ac2d286f4a07Ff96dD2cAe292B",
+    "0xddE41e7aF3E6b3Ef46A70025d0d859166270AC49",
     //interestRateModel_
     "0x3435bB7C5EF81E606acf3fb221be1619cFe5080A",
     //initialExchangeRateMantissa_

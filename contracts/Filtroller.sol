@@ -16,6 +16,7 @@ import "./Governance/Fil.sol";
  */
 
 
+
  contract Filtroller is FiltrollerV3Storage, FiltrollerInterface, FiltrollerErrorReporter, Exponential {
     /// @notice Emitted when an admin supports a market
     event MarketListed(FToken fToken);
@@ -1394,6 +1395,6 @@ import "./Governance/Fil.sol";
      * @return The address of FIL
      */
     function getFilAddress() public view returns (address) {
-        return 0xc00e94Cb662C3520282E6f5717214004A7f26888;
+        return 0xaaF34436e7E9f748DcB17ce801dFb78bdeF8751b;
     }
 }

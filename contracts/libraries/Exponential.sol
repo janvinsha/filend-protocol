@@ -349,3 +349,6 @@ contract Exponential is CarefulMath {
         return Double({mantissa: div_(mul_(a, doubleScale), b)});
     }
 }
+
+
+

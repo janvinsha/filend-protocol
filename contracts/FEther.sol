@@ -6,7 +6,7 @@ import "./FToken.sol";
 
 /**
  * @title Filend's FEther Contract
- * @notice CToken which wraps Ether
+ * @notice FToken which wraps Ether
  * @author Filendx
  */
 contract FEther is FToken {
@@ -41,7 +41,7 @@ contract FEther is FToken {
     /*** User Interface ***/
 
     /**
-     * @notice Sender supplies assets into the market and receives cTokens in exchange
+     * @notice Sender supplies assets into the market and receives fTokens in exchange
      * @dev Reverts upon any failure
      */
     function mint() external payable {
@@ -50,9 +50,9 @@ contract FEther is FToken {
     }
 
     /**
-     * @notice Sender redeems cTokens in exchange for the underlying asset
+     * @notice Sender redeems fTokens in exchange for the underlying asset
      * @dev Accrues interest whether or not the operation succeeds, unless reverted
-     * @param redeemTokens The number of cTokens to redeem into underlying
+     * @param redeemTokens The number of fTokens to redeem into underlying
      * @return uint 0=success, otherwise a failure (see ErrorReporter.sol for details)
      */
     function redeem(uint redeemTokens) external returns (uint) {
@@ -60,7 +60,7 @@ contract FEther is FToken {
     }
 
     /**
-     * @notice Sender redeems cTokens in exchange for a specified amount of underlying asset
+     * @notice Sender redeems fTokens in exchange for a specified amount of underlying asset
      * @dev Accrues interest whether or not the operation succeeds, unless reverted
      * @param redeemAmount The amount of underlying to redeem
      * @return uint 0=success, otherwise a failure (see ErrorReporter.sol for details)
@@ -101,7 +101,7 @@ contract FEther is FToken {
      * @notice The sender liquidates the borrowers collateral.
      *  The collateral seized is transferred to the liquidator.
      * @dev Reverts upon any failure
-     * @param borrower The borrower of this cToken to be liquidated
+     * @param borrower The borrower of this fToken to be liquidated
      * @param fTokenCollateral The market in which to seize collateral from the borrower
      */
     function liquidateBorrow(address borrower, FToken fTokenCollateral) external payable {

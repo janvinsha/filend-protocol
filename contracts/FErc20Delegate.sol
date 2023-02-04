@@ -5,7 +5,7 @@ import "./FErc20.sol";
 
 /**
  * @title Filend's CErc20Delegate Contract
- * @notice CTokens which wrap an EIP-20 underlying and are delegated to
+ * @notice FTokens which wrap an EIP-20 underlying and are delegated to
  * @author Filend
  */
 contract FErc20Delegate is FErc20, FDelegateInterface {

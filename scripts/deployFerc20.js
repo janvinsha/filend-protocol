@@ -1,18 +1,19 @@
 const main = async () => {
   const ferc20Factory = await hre.ethers.getContractFactory("FErc20Immutable");
+
   const ferc20 = await ferc20Factory.deploy(
-    //underlyng address
-    "0xe802376580c10fe23f027e1e19ed9d54d4c9311e", //for usdt
+    // underlyng address
+    "0xD87Ba7A50B2E7E660f678A895E4B72E7CB4CCd9C", //for usdc
     //filtrollerAddress
-    "0xAeaD8eE43f8DD6ac2d286f4a07Ff96dD2cAe292B",
+    "0xddE41e7aF3E6b3Ef46A70025d0d859166270AC49",
     //interestRateModel_
-    "0x3435bB7C5EF81E606acf3fb221be1619cFe5080A",
+    "0xFaeA25414c74E8d3804A4cAdbBd4aDd99FB95d05",
     //initialExchangeRateMantissa_
     "200000000000000000000000000",
     //name_
-    "Filend USD Tether",
+    "Filend USD Coin",
     //symbol_
-    "fUSDT",
+    "fUSDC",
     //decinmals
     8,
     //admin_
@@ -20,7 +21,7 @@ const main = async () => {
   );
 
   await ferc20.deployed();
-  console.log("fUSDT Contract deployed to:", ferc20.address);
+  console.log("fUSDC Contract deployed to:", ferc20.address);
 };
 
 const runMain = async () => {

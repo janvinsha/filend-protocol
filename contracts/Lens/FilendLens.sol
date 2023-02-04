@@ -17,11 +17,20 @@ interface FiltrollerLensInterface {
     function claimFil(address) external;
     function filAccrued(address) external view returns (uint);
 }
+interface FTokenLensInterface {
+    function markets(address) external view returns (bool, uint);
+    function oracle() external view returns (PriceOracle);
+    function getAccountLiquidity(address) external view returns (uint, uint, uint);
+    function getAssetsIn(address) external view returns (FToken[] memory);
+    function claimFil(address) external;
+    function filAccrued(address) external view returns (uint);
+}
+
 
 contract FilendLens {
     struct FTokenMetadata {
         address fToken;
-        uint exchangeRateCurrent;
+        // uint exchangeRateCurrent;
         uint supplyRatePerBlock;
         uint borrowRatePerBlock;
         uint reserveFactorMantissa;
@@ -36,8 +45,8 @@ contract FilendLens {
         uint underlyingDecimals;
     }
 
-    function fTokenMetadata(FToken fToken) public returns (FTokenMetadata memory) {
-        uint exchangeRateCurrent = fToken.exchangeRateCurrent();
+    function fTokenMetadata(FToken fToken) public view  returns (FTokenMetadata memory) {
+        // uint exchangeRateCurrent = fToken.exchangeRateCurrent();
         FiltrollerLensInterface filtroller = FiltrollerLensInterface(address(fToken.filtroller()));
         (bool isListed, uint collateralFactorMantissa) = filtroller.markets(address(fToken));
         address underlyingAssetAddress;
@@ -54,7 +63,7 @@ contract FilendLens {
 
         return FTokenMetadata({
             fToken: address(fToken),
-            exchangeRateCurrent: exchangeRateCurrent,
+            // exchangeRateCurrent: exchangeRateCurrent,
             supplyRatePerBlock: fToken.supplyRatePerBlock(),
             borrowRatePerBlock: fToken.borrowRatePerBlock(),
             reserveFactorMantissa: fToken.reserveFactorMantissa(),
@@ -70,7 +79,8 @@ contract FilendLens {
         });
     }
 
-    function FTokenMetadataAll(FToken[] calldata fTokens) external returns (FTokenMetadata[] memory) {
+ 
+    function FTokenMetadataAll(FToken[] calldata fTokens) external  returns (FTokenMetadata[] memory) {
         uint fTokenCount = fTokens.length;
         FTokenMetadata[] memory res = new FTokenMetadata[](fTokenCount);
         for (uint i = 0; i < fTokenCount; i++) {
@@ -82,16 +92,16 @@ contract FilendLens {
     struct FTokenBalances {
         address fToken;
         uint balanceOf;
-        uint borrowBalanceCurrent;
-        uint balanceOfUnderlying;
+        // uint borrowBalanceCurrent;
+        // uint balanceOfUnderlying;
         uint tokenBalance;
         uint tokenAllowance;
     }
 
-    function fTokenBalances(FToken fToken, address payable account) public returns (FTokenBalances memory) {
+    function fTokenBalances(FToken fToken, address payable account) public view  returns (FTokenBalances memory) {
         uint balanceOf = fToken.balanceOf(account);
-        uint borrowBalanceCurrent = fToken.borrowBalanceCurrent(account);
-        uint balanceOfUnderlying = fToken.balanceOfUnderlying(account);
+        // uint  borrowBalanceCurrent  = fToken.borrowBalanceCurrent(account);
+        // uint balanceOfUnderlying = fToken.balanceOfUnderlying(account);
         uint tokenBalance;
         uint tokenAllowance;
 
@@ -108,14 +118,16 @@ contract FilendLens {
         return FTokenBalances({
             fToken: address(fToken),
             balanceOf: balanceOf,
-            borrowBalanceCurrent: borrowBalanceCurrent,
-            balanceOfUnderlying: balanceOfUnderlying,
+            // borrowBalanceCurrent: borrowBalanceCurrent,
+            // balanceOfUnderlying: balanceOfUnderlying,
             tokenBalance: tokenBalance,
             tokenAllowance: tokenAllowance
         });
     }
 
-    function fTokenBalancesAll(FToken[] calldata fTokens, address payable account) external returns (FTokenBalances[] memory) {
+
+
+    function fTokenBalancesAll(FToken[] calldata fTokens, address payable account) external  returns (FTokenBalances[] memory) {
         uint fTokenCount = fTokens.length;
         FTokenBalances[] memory res = new FTokenBalances[](fTokenCount);
         for (uint i = 0; i < fTokenCount; i++) {
@@ -276,7 +288,7 @@ contract FilendLens {
         uint allocated;
     }
 
-    function getFilBalanceMetadataExt(Fil fil, FiltrollerLensInterface filtroller, address account) external returns (FilBalanceMetadataExt memory) {
+    function getFilBalanceMetadataExt(Fil fil, FiltrollerLensInterface filtroller, address account) external  returns (FilBalanceMetadataExt memory) {
         uint balance = fil.balanceOf(account);
         filtroller.claimFil(account);
         uint newBalance = fil.balanceOf(account);

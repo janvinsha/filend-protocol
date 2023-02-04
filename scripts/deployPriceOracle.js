@@ -6,13 +6,13 @@ const main = async () => {
     //guardian
     "0x659CE0FC2499E1Fa14d30F5CD88aD058ba490e39",
     // v1PriceOracle_
-    "0x8009E32302342D3F29977D0D7Ea55cA5a43E1eBb",
+    "0xfc6f773c76f63EFe8BB8584fa5E124C49A270349",
     //fetheraddress
-    "0xEf27dEc223ED218Ad5AfE0F211dB6Eb3a9918c4C",
+    "0xC411eED88310e6A79024D14eeD8cbbe6918F9119",
     //fusdcaddress
-    "0x160Def7e19bF719f8620a36e1C95aEB0bf460b1F",
+    "0x9E5cFe1F5A81DAB8Ba0F8ceea094B28907Ce4202",
     //fusdt
-    "0xa42Dc52912358688DA648050c3B439b20B2e74e7"
+    "0x88Af7ae8e7d4c598e278f9c6dfd55312c1B4117B"
   );
   await priceOracle.deployed();
   console.log("price oracle Contract deployed to:", priceOracle.address);

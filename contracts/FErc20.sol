@@ -6,7 +6,7 @@ pragma solidity ^0.8.4;
 import "./FToken.sol";
 
 /**
- * @title Filend's CErc20 Contract
+ * @title Filend's FErc20 Contract
  * @notice FTokens which wrap an EIP-20 underlying
  * @author Filend
  */

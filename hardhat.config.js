@@ -1,7 +1,8 @@
-// require("@nomiclabs/hardhat-etherscan");
-require("@nomiclabs/hardhat-waffle");
-require("hardhat-gas-reporter");
+require("@nomicfoundation/hardhat-toolbox");
 require("hardhat-contract-sizer");
+require("hardhat-gas-reporter");
+require("hardhat-deploy");
+require("hardhat-deploy-ethers");
 
 require("dotenv").config();
 
@@ -123,9 +124,10 @@ module.exports = {
       url: "https://polygon-mumbai.g.alchemy.com/v2/Pvb6j4jNWhPVS7wWM7tGnsU0F_ntNCur",
       accounts: [PRIVATE_KEY],
     },
+
     hyperspace: {
       chainId: 3141,
-      url: "https://api.hyperspace.node.glif.io/rpc/v1",
+      url: "https://api.hyperspace.node.glif.io/rpc/v0",
       accounts: [PRIVATE_KEY],
     },
     goerli: {
